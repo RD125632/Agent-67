@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://4jics0cv7c7c"]
+
+[ext_resource type="Script" uid="uid://dfyh67nak2abf" path="res://Views/GameOver/gameOver.gd" id="1_ikhea"]
+[ext_resource type="Texture2D" uid="uid://1jyqug5q7ipd" path="res://Assets/Background/background.png" id="2_kh204"]
+[ext_resource type="Texture2D" uid="uid://cxpx12mootwjg" path="res://Assets/Menu/Title.png" id="3_eu7he"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6win"]
+bg_color = Color(0, 0, 0, 0.9019608)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfkog"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+
+[node name="GameOver" type="CanvasLayer" unique_id=1237168286]
+script = ExtResource("1_ikhea")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1550667464]
+position = Vector2(903.99994, 511)
+scale = Vector2(1.3841145, 1.1503909)
+texture = ExtResource("2_kh204")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1271959687]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -62.5
+offset_right = 112.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=545711976]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TitleTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1745465362]
+layout_mode = 2
+
+[node name="Title" type="Sprite2D" parent="MarginContainer/VBoxContainer/TitleTextureRect" unique_id=1231978866]
+position = Vector2(22, -108)
+texture = ExtResource("3_eu7he")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1503258011]
+layout_mode = 2
+theme_override_constants/margin_top = 75
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=543802521]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SCORE: xx xx"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HighscoreList" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=840672925]
+layout_mode = 2
+
+[node name="Retry" type="Button" parent="MarginContainer/VBoxContainer" unique_id=278002089]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 1.21
+theme_override_styles/normal = SubResource("StyleBoxFlat_s6win")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pfkog")
+text = "Retry
+
+"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1843506331]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 1.21
+theme_override_styles/normal = SubResource("StyleBoxFlat_s6win")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pfkog")
+text = "Exit"

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://w6eav2tbujmm"]
+
+[ext_resource type="Script" uid="uid://nkc8csbfohgd" path="res://Entities/Obstacles/Obstacle.gd" id="1_22uaf"]
+[ext_resource type="Script" uid="uid://d3ani4ii2i661" path="res://Entities/Obstacles/CollisionDetection.gd" id="2_cpie0"]
+
+[sub_resource type="Gradient" id="Gradient_5epwn"]
+colors = PackedColorArray(1, 0, 0.80815506, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2eeqm"]
+gradient = SubResource("Gradient_5epwn")
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5epwn"]
+size = Vector2(64, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eeqm"]
+size = Vector2(60, 22)
+
+[node name="Square" type="Node2D" unique_id=1240323976]
+script = ExtResource("1_22uaf")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=895849850]
+texture = SubResource("GradientTexture2D_2eeqm")
+metadata/_edit_lock_ = true
+
+[node name="CollisionDetection" type="Area2D" parent="." unique_id=1096576674]
+position = Vector2(0, 3)
+script = ExtResource("2_cpie0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CollisionDetection" unique_id=1082623698]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5epwn")
+debug_color = Color(0.70196074, 0.01107872, 0, 0.41960785)
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=1386470179]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="StaticBody" unique_id=1004780265]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_2eeqm")

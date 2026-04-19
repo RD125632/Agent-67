@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://disnpmhul4mjr"]
+
+[ext_resource type="Script" uid="uid://ddco1cwshlbid" path="res://Views/Menu/menu.gd" id="1_txe5v"]
+[ext_resource type="Texture2D" uid="uid://1jyqug5q7ipd" path="res://Assets/Background/background.png" id="2_hr6vp"]
+[ext_resource type="Texture2D" uid="uid://cxpx12mootwjg" path="res://Assets/Menu/Title.png" id="3_vcxul"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpcl"]
+bg_color = Color(0, 0, 0, 0.9019608)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx167"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+
+[node name="Menu" type="CanvasLayer" unique_id=1538533295]
+script = ExtResource("1_txe5v")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1767459848]
+position = Vector2(903.99994, 511)
+scale = Vector2(1.3841145, 1.1503909)
+texture = ExtResource("2_hr6vp")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=147785109]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -62.5
+offset_right = 112.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1358179952]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TitleTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1052936785]
+layout_mode = 2
+
+[node name="Title" type="Sprite2D" parent="MarginContainer/VBoxContainer/TitleTextureRect" unique_id=138168399]
+position = Vector2(22, -108)
+texture = ExtResource("3_vcxul")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=286125617]
+layout_mode = 2
+theme_override_constants/margin_top = 75
+
+[node name="SinglePlayer" type="Button" parent="MarginContainer/VBoxContainer" unique_id=734380469]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 1.21
+theme_override_styles/normal = SubResource("StyleBoxFlat_ylpcl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cx167")
+text = "Solo Play
+"
+
+[node name="DuoPlayer" type="Button" parent="MarginContainer/VBoxContainer" unique_id=644362398]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 1.21
+theme_override_styles/normal = SubResource("StyleBoxFlat_ylpcl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cx167")
+text = "Duo Play
+"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=482470579]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 1.21
+theme_override_styles/normal = SubResource("StyleBoxFlat_ylpcl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cx167")
+text = "Exit"
