@@ -18,18 +18,17 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		get_tree().change_scene_to_file("uid://disnpmhul4mjr")
 
-func _on_square_timer_timeout() -> void:
-	
+func _on_obstacle_timer_timeout() -> void:
 	var r = randi() % 5   # 0 - 9
 	var adjustment = randi_range(-50,50)
 	if r > 3:
 		
 		var square = square_scene.instantiate()
-		square.position = Vector2(1300 + adjustment, 900)
+		square.position = Vector2(2000 + adjustment, 900)
 		spawns.add_child(square)
 	elif r > 1:
 		var square = triangle_scene.instantiate()
-		square.position = Vector2(1300 + adjustment, 900)
+		square.position = Vector2(2000 + adjustment, 900)
 		spawns.add_child(square)
 
 func _on_score_timer_timeout() -> void:

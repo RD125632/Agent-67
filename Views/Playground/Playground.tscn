@@ -63,4 +63,4 @@ position = Vector2(256, 887)
 scale = Vector2(2, 2)
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_square_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_obstacle_timer_timeout"]
