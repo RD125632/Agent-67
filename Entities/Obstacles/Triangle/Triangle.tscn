@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ddiue7qxlntk3"]
+
+[ext_resource type="Script" uid="uid://nkc8csbfohgd" path="res://Entities/Obstacles/Obstacle.gd" id="1_5mdfe"]
+[ext_resource type="Script" uid="uid://d3ani4ii2i661" path="res://Entities/Obstacles/CollisionDetection.gd" id="2_s2v3h"]
+
+[node name="Triangle" type="Node2D" unique_id=42954483]
+script = ExtResource("1_5mdfe")
+
+[node name="Polygon" type="Polygon2D" parent="." unique_id=1670449393]
+color = Color(1, 0, 0.80784315, 1)
+polygon = PackedVector2Array(-32, 32, 32, 32, 0, -32)
+metadata/_edit_lock_ = true
+
+[node name="CollisionDetection" type="Area2D" parent="." unique_id=227001590]
+script = ExtResource("2_s2v3h")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="CollisionDetection" unique_id=192794710]
+polygon = PackedVector2Array(32, 32, -32, 32, 0, -32)
+metadata/_edit_lock_ = true

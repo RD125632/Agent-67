@@ -10,14 +10,19 @@ config_version=5
 
 [application]
 
-config/name="ImpossibleGame2"
+config/name="Agent 67"
 run/main_scene="uid://disnpmhul4mjr"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://p7mitte3a15c"
 
 [autoload]
 
 GameManager="*uid://4yebf1dmm6up"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 

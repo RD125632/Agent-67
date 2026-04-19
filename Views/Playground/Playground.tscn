@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://xtme3fhwmdqg"]
+
+[ext_resource type="Script" uid="uid://bv4y2lx4atxj7" path="res://Views/Playground/playground.gd" id="1_d17em"]
+[ext_resource type="PackedScene" uid="uid://n0ru0ckot1h6" path="res://Entities/Player/Player.tscn" id="2_1cwr0"]
+[ext_resource type="Texture2D" uid="uid://1jyqug5q7ipd" path="res://Assets/Background/background.png" id="3_710ao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
+size = Vector2(1944, 162.25)
+
+[sub_resource type="Gradient" id="Gradient_m8u5f"]
+colors = PackedColorArray(0.48027045, 0, 0.35764065, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_is3ju"]
+gradient = SubResource("Gradient_m8u5f")
+fill_to = Vector2(0, 0)
+
+[node name="Playground" type="Node2D" unique_id=1693839971]
+script = ExtResource("1_d17em")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1885152271]
+position = Vector2(903.99994, 511)
+scale = Vector2(1.3841145, 1.1503909)
+texture = ExtResource("3_710ao")
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=783151099]
+wait_time = 0.1
+autostart = true
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=819865347]
+autostart = true
+
+[node name="Spawns" type="Node2D" parent="." unique_id=479069106]
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=1516634310]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="StaticBody" unique_id=1381495144]
+position = Vector2(964, 1000)
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Sprite" type="Sprite2D" parent="StaticBody" unique_id=133801565]
+position = Vector2(964.00006, 1000)
+scale = Vector2(30.375002, 2.5156243)
+texture = SubResource("GradientTexture2D_is3ju")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=585919354]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=159702481]
+offset_left = 16.0
+offset_top = 952.0
+offset_right = 72.0
+offset_bottom = 975.0
+text = "SCORE:"
+
+[node name="HighscoreLabel" type="Label" parent="CanvasLayer" unique_id=2043150828]
+offset_left = 16.0
+offset_top = 976.0
+offset_right = 248.0
+offset_bottom = 999.0
+text = "HIGHSCORE:"
+
+[node name="Player" parent="." unique_id=1355343737 instance=ExtResource("2_1cwr0")]
+position = Vector2(256, 887)
+scale = Vector2(2, 2)
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_square_timer_timeout"]
