@@ -1,8 +1,5 @@
 extends Node2D
 
-var highscore : int = 0
-var currentscore : int = 0
-
 var square_scene : PackedScene = preload("uid://w6eav2tbujmm")
 var triangle_scene : PackedScene = preload("uid://ddiue7qxlntk3")
 
@@ -12,7 +9,9 @@ var triangle_scene : PackedScene = preload("uid://ddiue7qxlntk3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	high_score_label.text = "HIGHSCORE: " + str(GameManager.highscore)
+	# Luister naar de GameManager voor nieuwe scores
+	GameManager.highscores_received.connect(update_highscore_ui)
+	GameManager.fetch_highscores()
 
 # CallSpawnObjectsed every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -32,9 +31,15 @@ func _on_square_timer_timeout() -> void:
 		var square = triangle_scene.instantiate()
 		square.position = Vector2(1300 + adjustment, 900)
 		spawns.add_child(square)
-		
 
 func _on_score_timer_timeout() -> void:
-	currentscore += 1
-	GameManager.score = currentscore
-	label.text = "SCORE: " + str(currentscore)
+	GameManager.score += 1
+	label.text = "SCORE: " + str(GameManager.score)
+
+func update_highscore_ui() -> void:
+	if GameManager.highscores.size() > 0:
+		# Pak de score van het eerste object in de array
+		var top_score = GameManager.highscores[0].get("score", 0)
+		high_score_label.text = "HIGHSCORE: " + str(top_score)
+	else:
+		high_score_label.text = "HIGHSCORE: No data"

@@ -75,9 +75,8 @@ text = "SCORE: xx xx"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Highscore" type="Label" parent="MarginContainer/VBoxContainer" unique_id=589118586]
+[node name="HighscoreList" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=840672925]
 layout_mode = 2
-text = "HIGHSCORE:"
 
 [node name="Retry" type="Button" parent="MarginContainer/VBoxContainer" unique_id=278002089]
 custom_minimum_size = Vector2(0, 50)
