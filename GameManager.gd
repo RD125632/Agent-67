@@ -23,7 +23,7 @@ func fetch_highscores() -> void:
 		print("Fout bij starten GET verzoek")
 
 # Functie om een nieuwe score te sturen (POST)
-func submit_highscore(player_name: String, score: int) -> void:
+func submit_highscore() -> void:
 	var url = "https://jouw-api.com"
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify({"name": player_name, "score": score})
@@ -33,7 +33,7 @@ func submit_highscore(player_name: String, score: int) -> void:
 	if error != OK:
 		print("Fout bij starten POST verzoek")
 
-func _on_request_completed(result, response_code, headers, body):
+func _on_request_completed(result, response_code, body):
 	if result != HTTPRequest.RESULT_SUCCESS:
 		print("Netwerkfout! Kan de server niet bereiken. Result code: ", result)
 		return
