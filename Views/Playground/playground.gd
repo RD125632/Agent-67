@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 
 	# Spawn 'Boo' op de hele beats
 	if current_beat > last_spawned_beat:
-		#spawn_obstacle(square_scene, Y_LOW)
+		spawn_obstacle(square_scene, Y_LOW)
 		last_spawned_beat = current_beat
 	
 	# Spawn 'Ba' op de halve beats
