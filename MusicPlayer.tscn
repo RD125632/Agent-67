@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bj6bnq2aellul"]
+
+[ext_resource type="AudioStream" uid="uid://bbmc2xsauod0o" path="res://Assets/Erika - Marcha Alemana [Letra en Español] (mp3cut.net).mp3" id="1_1a72i"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" unique_id=1312884081]
+stream = ExtResource("1_1a72i")
+autoplay = true
+bus = &"MusicBus"

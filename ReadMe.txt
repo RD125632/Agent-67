@@ -6,3 +6,4 @@ TODOList:
 	- Player 2 en character selection
 	- Paralax met meet layers
 	- Beter spawn algoritme
+	- Sound

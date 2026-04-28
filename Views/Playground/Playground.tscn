@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bv4y2lx4atxj7" path="res://Views/Playground/playground.gd" id="1_d17em"]
 [ext_resource type="PackedScene" uid="uid://n0ru0ckot1h6" path="res://Entities/Player/Player.tscn" id="2_1cwr0"]
 [ext_resource type="Texture2D" uid="uid://1jyqug5q7ipd" path="res://Assets/Background/background.png" id="3_710ao"]
+[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="4_8g8ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(1944, 162.25)
@@ -13,6 +14,9 @@ colors = PackedColorArray(0.48027045, 0, 0.35764065, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_is3ju"]
 gradient = SubResource("Gradient_m8u5f")
 fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_710ao"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Playground" type="Node2D" unique_id=1693839971]
 script = ExtResource("1_d17em")
@@ -61,6 +65,24 @@ text = "HIGHSCORE:"
 [node name="Player" parent="." unique_id=1355343737 instance=ExtResource("2_1cwr0")]
 position = Vector2(256, 887)
 scale = Vector2(2, 2)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=192054131]
+position = Vector2(255, 924)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=2131141386]
+
+[node name="Panel" type="Panel" parent="Node2D/CanvasLayer" unique_id=973622562]
+offset_left = 252.0
+offset_top = 264.0
+offset_right = 260.0
+offset_bottom = 920.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_710ao")
+
+[node name="RhythmNotifier" type="Node" parent="." unique_id=1530275519]
+script = ExtResource("4_8g8ah")
+bpm = 53.0
+beat_length = 1.1320754716981132
+metadata/_custom_type_script = "uid://dos3qhffr4v0a"
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_obstacle_timer_timeout"]
